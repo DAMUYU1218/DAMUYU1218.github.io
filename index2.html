@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寻人启事</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(rgb(255, 255, 255), rgb(94, 101, 90));
+        }
+
+        .top-bar {
+            width: 100%;
+            background-color: rgb(128, 128, 128); /* 浅灰色背景 */
+            padding: 10px 0;
+            box-sizing: border-box;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px; /* 最大宽度 */
+            margin: 0 auto; /* 居中对齐容器 */
+            padding: 0 20px; /* 添加左右内边距 */
+            box-sizing: border-box;
+        }
+
+        .top-bar-left {
+            font-size: 16px;
+        }
+
+        .top-bar-right {
+            display: flex;
+        }
+
+        .top-bar-right a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 15px; /* 增加链接之间的间距 */
+        }
+
+        .top-bar-right a:hover {
+            text-decoration: underline;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center; /* 使搜索框和按钮在同一水平线上 */
+            border: 2px solid red; /* 红色边框 */
+            padding: 10px;
+            border-radius: 5px; /* 圆角边框 */
+            background-color: #fff; /* 背景颜色可以根据需要调整 */
+            max-width: 800px; /* 最大宽度 */
+            margin: 20px auto; /* 居中对齐 */
+            box-sizing: border-box;
+        }
+
+        .search-container input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+            width: calc(100% - 120px); /* 计算宽度，留出按钮的位置 */
+            box-sizing: border-box;
+        }
+
+        .search-container button {
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .main-buttons {
+            display: flex;
+            justify-content: flex-end; /* 按钮右对齐 */
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        #register-button, #sibling-register-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF; /* 按钮背景色 */
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #register-button:hover, #sibling-register-button:hover {
+            background-color: #0056b3; /* 按钮悬停时的背景色 */
+        }
+
+        .nav-bar {
+            background-color: red; /* 红色背景 */
+            padding: 10px 0;
+            position: relative; /* 使右侧按钮固定 */
+        }
+
+        .nav-bar-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px; /* 最大宽度 */
+            margin: 0 auto; /* 居中对齐容器 */
+            padding: 0 20px; /* 添加左右内边距 */
+            box-sizing: border-box;
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: white;
+            margin: 0 10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .nav-bar a:hover {
+            background-color: yellow; /* 悬停时的背景色 */
+            color: black; /* 悬停时的文字颜色 */
+        }
+
+        .news-button {
+            background-color: green; /* 绿色背景 */
+        }
+
+        .news-button:hover {
+            background-color: yellow; /* 悬停时的背景色 */
+            color: black; /* 悬停时的文字颜色 */
+        }
+
+        .volunteer-button {
+            background-color: yellow; /* 黄色背景 */
+            color: black; /* 黑色文字 */
+        }
+
+        .volunteer-button:hover {
+            background-color: green; /* 悬停时的背景色 */
+            color: white; /* 悬停时的文字颜色 */
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .roommate {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 10px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .roommate img {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部信息条 -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="top-bar-left">
+                <span id="current-date"></span>
+            </div>
+            <div class="top-bar-right">
+               <h3>你好！</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- 显示日期的容器 -->
+    <div class="date-container">
+        <span id="display-date"></span>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="main-header">
+        <h1><a href="index.html">寻亲网</a></h1>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="搜索名字...">
+            <button id="search-button" onclick="searchWarning()">搜索</button>
+        </div>
+        <div class="main-buttons">
+            <button id="sibling-register-button" >寻亲登记</button>
+        </div>
+    </div>
+
+    <!-- 主要内容导航栏 -->
+    <div class="nav-bar">
+        <div class="nav-bar-content">
+            <a href="index.html">首页</a>
+            <a href="missing-info.html">寻亲信息</a>
+            <a href="family-missing.html">家人寻亲</a>
+            <a href="benefactor-missing.html">恩人寻亲</a>
+            <a href="other-missing.html">其他寻亲</a>
+            <a href="news.html" class="news-button">新闻</a>
+            <a href="volunteer.html" class="volunteer-button">志愿者</a>
+        </div>
+    </div>
+
+    <header>
+        <h1>寻人启事</h1>
+    </header>
+    <main>
+        <h2>欢迎来到我们的寻人启事网站</h2>
+        <h3>让爱回来--万家团圆</h3>
+        <p>这里展示了有关二工大内的寻人信息。</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 寻人启事网站</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取当前日期
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const currentDate = now.toLocaleDateString('zh-CN', options);
+            
+            // 显示当前日期
+            document.getElementById('current-date').textContent = `今天是：${currentDate}`;
+        });
+    </script>
+    <script>
+        function searchWarning() {
+            // 弹出警告消息
+            alert("当前网络连接断开，稍后再试试吧！");
+        }
+        document.getElementById('sibling-register-button').addEventListener('click', function() {
+            window.location.href = 'DShtml.html';
+        });
+    </script>
+</body>
+</html>

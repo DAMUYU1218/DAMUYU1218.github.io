@@ -1,0 +1,87 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="UTF-8">
+	<!DOCTYPE html>
+	<html lang="zh-CN">
+	<head>
+	    <title>用户注册页面</title>
+	    <style>
+	        body {
+	            font-family: Arial, sans-serif;
+	            background-color: grey;
+	        }
+	        .container {
+	            max-width: 500px;
+	            margin: 50px auto;
+	            background: white;
+	            padding: 20px;
+	        }
+	        h2 {
+	            text-align: center;
+	            margin-bottom: 20px;
+	        }
+	        label {
+	            display: block;
+	            margin: 10px 0 5px;
+	            font-weight: bold;
+	        }
+	        input[type="text"],
+	        input[type="password"],
+	        input[type="email"],
+	        input[type="date"] {
+	            width: 96%;
+	            padding: 10px;
+	            margin-bottom: 15px;
+	            border: 1px solid #ccc;
+	        }
+	        button {
+	            width: 100%;
+	            padding: 10px;
+	            background-color: #5cb85c;
+	            color: white;
+	            border: 0;
+	            cursor: pointer;
+	        }
+	        button:hover {
+	            background-color: #4cae4c;
+	        }
+	    </style>
+	</head>
+	<body>
+	    <div class="container">
+	        <h2>用户注册</h2>
+	        <form>
+	            <label>登录账号</label>
+	            <input type="text" name="username" pattern="^[a-zA-Z][a-zA-Z0-9]*$" title="登录账号必须以字母开头，只能包含字母和数字" required placeholder="字母开头，含字母和数字">
+	
+	            <label>密码</label>
+	            <input type="password" name="password" pattern="^(?=.*[a-zA-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{8,}$" title="密码必须包含字母、数字和特殊字符，且至少8位" required placeholder="至少8位字符">
+	
+	            <label>确认密码</label>
+	            <input type="password"  name="confirm_password" required placeholder="再次输入密码">
+	
+	            <label>姓名</label>
+	            <input type="text" name="name" required placeholder="请输入您的姓名">
+	
+	            <label>身份证号码</label>
+	            <input type="text" name="idcard" pattern="^\d{17}[\dXx]$" title="请输入18位身份证号码" required placeholder="请输入18位身份证号码">
+	
+	            <label>出生年月日</label>
+	            <input type="date" name="birthdate" required placeholder="yyyy-mm-dd">
+	
+	            <label>住址</label>
+	            <input type="text" name="address" required placeholder="请输入您的住址">
+	
+	            <label>邮编</label>
+	            <input type="text" name="postcode" pattern="^\d{6}$" title="邮编必须为6位数字" required placeholder="请输入6位数字邮编">
+	
+	            <label>E-mail</label>
+	            <input type="email"name="email" required placeholder="请输入有效的邮箱地址">
+	
+	            <button type="submit">注册</button>
+	          
+	        </form>
+	    </div>
+	</body>
+	</html>

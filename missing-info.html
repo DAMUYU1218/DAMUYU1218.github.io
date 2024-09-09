@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寻亲信息</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .top-bar {
+            width: 100%;
+            background-color: rgb(128, 128, 128); /* 浅灰色背景 */
+            padding: 10px 0;
+            box-sizing: border-box;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px; /* 最大宽度 */
+            margin: 0 auto; /* 居中对齐容器 */
+            padding: 0 20px; /* 添加左右内边距 */
+            box-sizing: border-box;
+        }
+
+        .top-bar-left {
+            font-size: 16px;
+        }
+
+        .top-bar-right {
+            display: flex;
+        }
+
+        .top-bar-right a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 15px; /* 增加链接之间的间距 */
+        }
+
+        .top-bar-right a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            background-color: red; /* 红色背景 */
+            padding: 10px 0;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            background-color: red; /* 红色背景 */
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-bar a:hover, .nav-bar a.active {
+            background-color: yellow; /* 点击变黄色 */
+        }
+
+        .filter-container {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .filter-container label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .filter-container select, .filter-container input[type="text"], .filter-container input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .filter-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF; /* 按钮背景色 */
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .filter-container button:hover {
+            background-color: #0056b3; /* 按钮悬停时的背景色 */
+        }
+
+        .missing-person {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px auto;
+            background-color: #fff;
+            max-width: 800px;
+        }
+
+        .missing-person img {
+            border-radius: 5%;
+            width: 125px;
+            height: 150px;
+            margin-right: 20px;
+            margin-left: 50px;
+        }
+
+        .missing-person-details {
+            flex: 1;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部信息条 -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="top-bar-left">
+                <span id="current-date"></span>
+            </div>
+            <div class="top-bar-right">
+                <a href="login.html">登录</a> | <a href="register.html">注册</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <div class="nav-bar">
+        <a href="index.html">首页</a>
+        <a href="search.html" class="active">寻亲信息</a>
+        <a href="family-missing.html">家人寻亲</a>
+        <a href="benefactor-missing.html">恩人寻亲</a>
+        <a href="other-missing.html">其他寻亲</a>
+        <a href="news.html" style="background-color: green; color: white;">新闻</a>
+        <a href="volunteer.html" style="background-color: yellow; color: black;">志愿者</a>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="main-header">
+        <h2>欢迎来到寻亲信息页面</h2>
+        <p>在这里，您可以通过以下筛选条件找到相关寻人信息。</p>
+    </div>
+    
+    <!-- 寻亲信息筛选 -->
+    <div class="filter-container">
+        <label for="region">地区：</label>
+        <select id="region">
+            <option value="">请选择地区</option>
+            <option value="beijing">北京</option>
+            <option value="shanghai">上海</option>
+            <option value="henan">河南</option>
+            <option value="hebei">河北</option>
+            <option value="xinjiang">新疆</option>
+            <option value="anhui">安徽</option>
+        </select>
+
+        <label for="gender">性别：</label>
+        <select id="gender">
+            <option value="">请选择性别</option>
+            <option value="male">男</option>
+            <option value="female">女</option>
+            <option value="wem">沃尔玛购物袋</option>
+        </select>
+
+        <label for="name">名字：</label>
+        <input type="text" id="name" placeholder="输入名字">
+
+        <label for="location">失踪地点：</label>
+        <input type="text" id="location" placeholder="输入失踪地点">
+
+        <button id="filter-button">筛选</button>
+    </div>
+
+    <!-- 失踪人员信息 -->
+    <main>
+        <div class="missing-person" data-region="hebei" data-gender="male" data-name="代*祖" data-location="图书馆">
+            <img src="C:\Users\yuhaojun\Desktop\大作业\002e50d08fec8a52100445afbdbd557.png" alt="代*祖">
+            <div class="missing-person-details">
+                <h3>代*祖</h3>
+                <p>地区：河北</p>
+                <p>性别：男</p>
+                <p>失踪地点：图书馆</p>
+            </div>
+        </div>
+        <div class="missing-person" data-region="henan" data-gender="male" data-name="郭*凯" data-location="食堂">
+            <img src="C:\Users\yuhaojun\Desktop\大作业\gzk.jpg" alt="郭*凯">
+            <div class="missing-person-details">
+                <h3>郭*凯</h3>
+                <p>地区：河南</p>
+                <p>性别：男</p>
+                <p>失踪地点：食堂</p>
+            </div>
+        </div>
+        <div class="missing-person" data-region="anhui" data-gender="female" data-name="周*华" data-location="菜鸟驿站">
+            <img src="C:\Users\yuhaojun\Desktop\大作业\zwh.jpg" alt="周*华">
+            <div class="missing-person-details">
+                <h3>周*华</h3>
+                <p>地区：安徽</p>
+                <p>性别：女</p>
+                <p>失踪地点：菜鸟驿站</p>
+            </div>
+        </div>
+        <div class="missing-person" data-region="anhui" data-gender="male" data-name="徐俊豪" data-location="寝室">
+            <img src="C:\Users\yuhaojun\Desktop\大作业\xjh.jpg" alt="徐俊豪">
+            <div class="missing-person-details">
+                <h3>徐俊豪</h3>
+                <p>地区：安徽</p>
+                <p>性别：男</p>
+                <p>失踪地点：寝室</p>
+            </div>
+        </div>
+        <div class="missing-person" data-region="xinjiang" data-gender="wem" data-name="蒲*轩" data-location="超市">
+            <img src="C:\Users\yuhaojun\Desktop\大作业\pyx.jpg" alt="蒲*轩">
+            <div class="missing-person-details">
+                <h3>蒲*轩</h3>
+                <p>地区：新疆</p>
+                <p>性别：沃尔玛购物袋</p>
+                <p>失踪地点：超市</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2024 寻人启事网站. </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取当前日期
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const currentDate = now.toLocaleDateString('zh-CN', options);
+            
+            // 显示当前日期
+            document.getElementById('current-date').textContent = `今天是：${currentDate}`;
+
+            // 筛选功能
+            document.getElementById('filter-button').addEventListener('click', function() {
+                const region = document.getElementById('region').value.toLowerCase();
+                const gender = document.getElementById('gender').value.toLowerCase();
+                const name = document.getElementById('name').value.toLowerCase();
+                const location = document.getElementById('location').value.toLowerCase();
+
+                document.querySelectorAll('.missing-person').forEach(person => {
+                    const personRegion = person.getAttribute('data-region').toLowerCase();
+                    const personGender = person.getAttribute('data-gender').toLowerCase();
+                    const personName = person.getAttribute('data-name').toLowerCase();
+                    const personLocation = person.getAttribute('data-location').toLowerCase();
+
+                    if (
+                        (region === '' || personRegion.includes(region)) &&
+                        (gender === '' || personGender === gender) &&
+                        (name === '' || personName.includes(name)) &&
+                        (location === '' || personLocation.includes(location))
+                    ) {
+                        person.style.display = 'flex'; // 显示匹配的人员
+                    } else {
+                        person.style.display = 'none'; // 隐藏不匹配的人员
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

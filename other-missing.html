@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>其他寻亲</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .top-bar {
+            width: 100%;
+            background-color: rgb(128, 128, 128);
+            padding: 10px 0;
+            box-sizing: border-box;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-bar-right a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 15px;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            background-color: red;
+            padding: 10px 0;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            background-color: red;
+            border-radius: 5px;
+        }
+
+        .nav-bar a:hover, .nav-bar a.active {
+            background-color: yellow;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .person {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .person img {
+            border-radius: 5%;
+            width: 125px;
+            height: 150px;
+            margin-right: 20px;
+        }
+
+        .person-details {
+            flex: 1;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部信息条 -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="top-bar-left">
+                <span>需要一定时间，请稍等</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="login.html">登录</a> | <a href="register.html">注册</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <div class="nav-bar">
+        <a href="index.html">首页</a>
+        <a href="missing-info.html">寻亲信息</a>
+        <a href="family-missing.html"">家人寻亲</a>
+        <a href="benefactor-missing.html">其他寻亲</a>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="content">
+        <h2>审核中的失踪人群</h2>
+        <div class="person">
+            <img src="C:\Users\yuhaojun\Desktop\大作业\hhh.jpg" alt="审核中">
+            <div class="person-details">
+                <h3>黄**</h3>
+                <p>地区：未知</p>
+                <p>性别：男</p>
+                <p>失踪地点：待审核</p>
+            </div>
+        </div>
+        <div class="person">
+            <img  alt="审核中">
+            <div class="person-details">
+                <h3>陈某</h3>
+                <p>地区：新疆</p>
+                <p>性别：女</p>
+                <p>失踪地点：待审核</p>
+            </div>
+        </div>
+        	
+    </div>
+
+    <footer>
+        <p>&copy; 2024 寻人启事网站</p>
+    </footer>
+
+</body>
+</html>

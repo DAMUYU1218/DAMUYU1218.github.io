@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上传文件与打赏</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .upload-section {
+            margin-bottom: 20px;
+        }
+        input[type="file"] {
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .donate-section {
+            margin-top: 30px;
+            font-size: 18px;
+            color: #333;
+        }
+        .image-placeholder {
+            width: 375px;
+            height: 400px;
+            background-color: #e0e0e0;
+            border: 2px dashed #ccc;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>上传文件与打赏</h1>
+        
+        <!-- 上传文件部分 -->
+        <div class="upload-section">
+            <input type="file" id="fileUpload" accept="image/*">
+            <button type="button" onclick="submitFile()">提交</button>
+        </div>
+        
+        <!-- 打赏提示 -->
+        <div class="donate-section">
+            打个赏赞助一下吧
+        </div>
+        
+        <!-- 预留图片位置 -->
+        <div class="image-placeholder" id="image-container">
+            <!-- 图片位置 -->
+            <img id="uploadedImage" src="C:\Users\yuhaojun\Desktop\大作业\tp.jpg" alt="图片将显示在此处">
+        </div>
+    </div>
+
+    <script>
+        function submitFile() {
+            const fileInput = document.getElementById('fileUpload');
+            
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                alert('文件已提交: ' + file.name);
+            } else {
+                alert('请先选择一个文件再提交。');
+            }
+        }
+    </script>
+</body>
+</html>

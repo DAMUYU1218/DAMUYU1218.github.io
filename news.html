@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* 顶部导航栏 */
+        .top-bar {
+            width: 100%;
+            background-color: red; /* 红色背景 */
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .top-bar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .top-bar a:hover {
+            text-decoration: underline;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 页面容器 */
+        .container {
+            margin-top: 80px; /* 为导航栏留出空间 */
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* 新闻标题与列表样式 */
+        .news-list h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .news-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-item-title {
+            font-size: 18px;
+        }
+
+        .news-item-date {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* 页脚样式 */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航栏 -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <a href="index.html">首页</a>
+            <a href="missing-info.html">寻亲信息</a>
+            <a href="family-missing.html">家人寻亲</a>
+            <a href="news.html">新闻</a>
+            <a href="volunteer.html">志愿者</a>
+        </div>
+    </div>
+
+    <!-- 内容容器 -->
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">首页</a> &gt; 新闻
+        </div>
+
+        <div class="news-list">
+            <h1>咨询中心</h1>
+            <div class="news-item">
+                <span class="news-item-title">2岁孩童走失，社区多方协力及时找到“粗心”父母</span>
+                <span class="news-item-date">2023-09-14 05:49</span>
+            </div>
+            <div class="news-item">
+                <span class="news-item-title">巡逻偶遇走失老人 民警暖心助其归家</span>
+                <span class="news-item-date">2023-09-14 05:48</span>
+            </div>
+            <div class="news-item">
+                <span class="news-item-title">复兴公安心诚为民 助群众找回走失老人</span>
+                <span class="news-item-date">2023-09-12 03:57</span>
+            </div>
+            <div class="news-item">
+                <span class="news-item-title">江苏南通：老人找到了，快接她回家吧</span>
+                <span class="news-item-date">2023-09-12 03:56</span>
+            </div>
+            <div class="news-item">
+                <span class="news-item-title">救助走失小女孩平凡 “警”事暖民心</span>
+                <span class="news-item-date">2023-09-11 05:18</span>
+            </div>
+            <div class="news-item">
+                <span class="news-item-title">“熊孩子”贪玩走失，民警10分钟找回</span>
+                <span class="news-item-date">2023-09-11 05:16</span>
+            </div>
+            <div class="news-item">
+                <span class="news-item-title">7旬老人走失 警民携手救助</span>
+                <span class="news-item-date">2023-09-11 05:11</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy;2024 寻人启事网站.</p>
+    </footer>
+
+</body>
+</html>
